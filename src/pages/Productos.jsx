@@ -1,5 +1,6 @@
 // genermaos hello world
 import React, { useEffect, useState } from 'react';
+import Carrito from '../components/Carrito';
 const Productos = () => {
 
     //generamos la data
@@ -23,13 +24,19 @@ const Productos = () => {
         <div style={{ padding: '2rem' }}>
             <h2>Productos</h2>
             <ul>
+                {/* mostramos: ID, nombre, precio, categoria y stock */}
                 {productos.map(producto => (
                     <li key={producto.id}>
                         <h3>{producto.nombre}</h3>
                         <p>Precio: ${producto.precio}</p>
+                        <p>id: {producto.id}</p>
+                        <p>Categoría: {producto.categoria}</p>
+                        <p>Stock: {producto.stock}</p>                        
                     </li>
                 ))}
             </ul>
+            <h2>Carrito</h2>
+            <Carrito productos={productos}/>
         </div>
     );
 }

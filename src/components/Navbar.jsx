@@ -13,6 +13,9 @@ const Navbar = () => {
                 <li>
                     <Link to="/productos" style={{color:'white',textDecoration:'none'}}>Productos</Link>
                 </li>
+                <li>
+                    <Link to="/agregar-producto" style={{color:'white',textDecoration:'none'}}>Agregar Producto</Link>
+                </li>
             </ul>
         </nav>
     );
