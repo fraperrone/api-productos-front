@@ -5,18 +5,19 @@ import Productos from "../pages/Productos";
 import DetalleProducto from "../pages/DetalleProducto";
 import AgregarProducto from "../pages/AgregarProducto";
 import UsuarioPedidos from "../pages/UsuarioPedidos";
+import Login from "../pages/LoginPage";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 const router = createBrowserRouter([
+  { path: "/login", element: <Login /> }, // login siempre accesible
   {
     path: "/",
-    element: <MainLayout />, // Layout con Navbar y Footer
+    element: <ProtectedRoute element={<MainLayout />} />, // protegido
     children: [
       { path: "/", element: <Home /> },
       { path: "/productos", element: <Productos /> },
       { path: "/productos/:id", element: <DetalleProducto /> },
-      //generamos ruta para agregar producto
       { path: "/agregar-producto", element: <AgregarProducto /> },
-      //ruta para ver los pedidos de un usuario
       { path: "/usuario-pedidos", element: <UsuarioPedidos /> },
     ],
   },

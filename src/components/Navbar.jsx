@@ -16,6 +16,9 @@ const Navbar = () => {
                 <li>
                     <Link to="/agregar-producto" style={{color:'white',textDecoration:'none'}}>Agregar Producto</Link>
                 </li>
+                <li>
+                    <Link to="/usuario-pedidos" style={{color:'white',textDecoration:'none'}}>Mis Pedidos</Link>
+                </li>
             </ul>
         </nav>
     );
