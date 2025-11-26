@@ -36,7 +36,7 @@ const Productos = () => {
                 ))}
             </ul>
             <h2>Carrito</h2>
-            <Carrito productos={productos}/>
+            <Carrito productos={productos} setProductos={setProductos}/>
         </div>
     );
 }

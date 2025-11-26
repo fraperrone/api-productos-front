@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-export default function Carrito({ productos }) {
+export default function Carrito({ productos, setProductos }) {
   const [carrito, setCarrito] = useState([]);
   const usuarioId = 1; // ejemplo: usuario logueado
 
@@ -22,13 +22,17 @@ export default function Carrito({ productos }) {
     try {
       const pedido = {
         usuarioId,
-        productos: carrito
+        itemsPedidos: carrito
       };
       console.log("Creando pedido:", pedido);
 
       const response = await axios.post("http://localhost:8080/api/pedidos", pedido);
-      alert("Pedido creado con éxito: " + response.data.id);
+      alert("Pedido creado con éxito: " + response);
       setCarrito([]); // vaciar carrito
+      //hacemos refresh de la pagina
+      // 🔄 volver a pedir productos actualizados
+      const res = await axios.get("http://localhost:8080/api/productos");
+      setProductos(res.data);
     } catch (error) {
       if (error.response) {
         alert("Error: " + error.response.data);
