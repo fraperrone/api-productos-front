@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("franco@mail.com"); // dejamos por default para testo mas facil
+  const [password, setPassword] = useState("adminpass");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +30,12 @@ const Login = () => {
       <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Correo" />
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" />
       <button type="submit">Ingresar</button>
+
+      <h4>Credenciales de cliente:</h4>
+      <p>Correo: juan@mail.com</p>
+      <p>Contraseña: 1234</p>
     </form>
+    
   );
 };
 

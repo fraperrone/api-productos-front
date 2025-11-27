@@ -8,6 +8,7 @@ const FormAgregarProducto = () => {
     const [precio, setPrecio] = useState("1500");
     const [categoria, setCategoria] = useState("Electrónica");
     const [stock, setStock] = useState("10");
+    const [resultado, setResultado] = useState(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,11 +29,13 @@ const FormAgregarProducto = () => {
                 setPrecio('');
                 setCategoria('');
                 setStock('');
+                setResultado(data); // Guardar el resultado para mostrarlo
             })
             .catch(error => console.error('Error al agregar producto:', error));
     };
 
     return (
+        <>
         <form onSubmit={handleSubmit} style={{ padding: '2rem' }}>
             <h2>Agregar Nuevo Producto</h2>
             <div>
@@ -53,6 +56,21 @@ const FormAgregarProducto = () => {
             </div>
             <button type="submit">Agregar Producto</button>
         </form>
+        {/* // mostramos el resultado de la operacion */}
+        <h4>Resultado de la operacion</h4>
+        {resultado && (
+            <div style={{ padding: '1rem', border: '1px solid green', margin: '1rem' }}>
+                <h4>Producto Agregado Exitosamente:</h4>
+                <p>ID: {resultado.id}</p>
+                <p>Nombre: {resultado.nombre}</p>
+                <p>Precio: {resultado.precio}</p>
+                <p>Categoría: {resultado.categoria}</p>
+                <p>Stock: {resultado.stock}</p>
+            </div>
+        )}
+
+        </>
+        
     );
 }
 export default FormAgregarProducto;

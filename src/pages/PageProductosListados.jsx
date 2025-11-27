@@ -1,7 +1,7 @@
 // genermaos hello world
 import React, { useEffect, useState } from 'react';
 import Carrito from '../components/Carrito';
-const Productos = () => {
+const PageProductosListados = () => {
 
     //generamos la data
     const [productos, setProductos] = useState([]);
@@ -35,9 +35,9 @@ const Productos = () => {
                     </li>
                 ))}
             </ul>
-            <h2>Carrito</h2>
-            <Carrito productos={productos} setProductos={setProductos}/>
+            {/* <h2>Carrito</h2>
+            <Carrito productos={productos} setProductos={setProductos}/> */}
         </div>
     );
 }
-export default Productos;
+export default PageProductosListados;
