@@ -1,9 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
+import { useAuth } from "../context/AuthContext";
 
 export default function Carrito({ productos, setProductos }) {
   const [carrito, setCarrito] = useState([]);
-  const usuarioId = 1; // ejemplo: usuario logueado
+  const { user } = useAuth();
 
   const agregarAlCarrito = (producto) => {
     const existente = carrito.find(item => item.productoId === producto.id);
@@ -21,7 +22,7 @@ export default function Carrito({ productos, setProductos }) {
   const handleComprar = async () => {
     try {
       const pedido = {
-        usuarioId,
+        usuarioId: user.id,
         itemsPedidos: carrito
       };
       console.log("Creando pedido:", pedido);

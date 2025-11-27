@@ -11,6 +11,7 @@ import PageAdministracionProductos from '../pages/PageAdministracionProductos'
 import PageDetalleProducto from '../pages/PageDetalleProducto'
 import PageEliminarProducto from '../pages/PageEliminarProducto'
 import PageActualizarProducto from '../pages/PageActualizarProducto'
+import PageCarritoCompras from '../pages/PageCarritoCompras'
 
 const router = createBrowserRouter([
   { path: '/login', element: <Login /> }, // login siempre accesible
@@ -22,7 +23,21 @@ const router = createBrowserRouter([
       { path: '/productos', element: <PageProductosListados /> },
       { path: '/productos/:id', element: <DetalleProducto /> },
 
-      { path: '/usuario-pedidos', element: <UsuarioPedidos /> },
+      {
+        path: '/usuario-pedidos',
+        element: (
+          <ProtectedRoute roles={['CLIENTE']} element={<UsuarioPedidos />} />
+        ),
+      },
+
+      {
+        path: '/carrito-compras',
+        element: (
+          <ProtectedRoute roles={['CLIENTE']} element={<PageCarritoCompras />} />
+        ),
+      },
+
+     
       // direcciones de adminstracion de productos
       {
         path: '/administrar-productos',
@@ -36,45 +51,24 @@ const router = createBrowserRouter([
         children: [
           {
             path: 'agregar-producto',
-            element: (
-              <ProtectedRoute
-                element={<PageAgregarProducto />}
-                
-              />
-            ),
+            element: <ProtectedRoute element={<PageAgregarProducto />} />,
           },
           {
             path: 'listado-productos',
-            element: (
-              <ProtectedRoute
-                element={<PageProductosListados />}                
-              />
-            ),
+            element: <ProtectedRoute element={<PageProductosListados />} />,
           },
           {
             path: 'detalle-productos',
-            element: (
-              <ProtectedRoute
-                element={<PageDetalleProducto />}                
-              />
-            ),
+            element: <ProtectedRoute element={<PageDetalleProducto />} />,
           },
           {
             path: 'eliminar-producto',
-            element: (
-              <ProtectedRoute
-                element={<PageEliminarProducto />}                
-              />
-            ),
+            element: <ProtectedRoute element={<PageEliminarProducto />} />,
           },
           {
             path: 'actualizar-producto',
-            element: (
-              <ProtectedRoute
-                element={<PageActualizarProducto />}                
-              />
-            ),
-          }
+            element: <ProtectedRoute element={<PageActualizarProducto />} />,
+          },
         ],
       },
     ],

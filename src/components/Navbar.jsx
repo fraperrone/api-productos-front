@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 const Navbar = () => {
-    const { login } = useAuth();
+  const { login } = useAuth()
   return (
     <nav style={{ padding: '1rem', background: '#282c34', color: 'white' }}>
       <h1>Mi Aplicación React</h1>
@@ -23,6 +23,8 @@ const Navbar = () => {
           </Link>
         </li>
 
+        <li>/</li>
+
         <li>
           <Link
             to="/usuario-pedidos"
@@ -30,6 +32,12 @@ const Navbar = () => {
           >
             Mis Pedidos
           </Link>
+        </li>
+
+        <li>
+          <Link to={'/carrito-compras'}
+            style={{ color: 'white', textDecoration: 'none' }}  
+          >Ver carrito de compras</Link>
         </li>
 
         {/* tablero de administrador */}
@@ -40,21 +48,21 @@ const Navbar = () => {
             to="/administrar-productos"
             style={{ color: 'white', textDecoration: 'none' }}
           >
-            Administrar Productos
+            Gestionar Productos
           </Link>
         </li>
+
+        {/* <li>Administracion usuarios</li> */}
 
         {/* boton Cerrar sesion */}
         <li>/</li>
         <Link
           to="/login"
           style={{ color: 'white', textDecoration: 'none' }}
-          onClick={ () =>
-            setLogin(null)
-          }
+          onClick={() => setLogin(null)}
         >
-            <li>Cerrar sesión</li>
-            </Link>
+          <li>Salir</li>
+        </Link>
       </ul>
     </nav>
   )

@@ -38,7 +38,7 @@ export default function PageActualizarProducto() {
     return (
         <div>
             <h2>Actualizar producto por ID</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem", maxWidth: "400px" }}>
                 <input
                     type="text"
                     value={id}
