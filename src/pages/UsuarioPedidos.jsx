@@ -1,23 +1,24 @@
 // genermaos una pagina que muestra los pedidos de un usuario en la direccion: /api/usuarios/{usuarioId}/pedidos
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useAuth } from '../context/AuthContext';
 
 const UsuarioPedidos = () => {
   const [pedidos, setPedidos] = useState([]); // inicializamos como array
-  const usuarioId = 1;
+  const { user } = useAuth();
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/api/usuarios/${usuarioId}/pedidos`)
+    axios.get(`http://localhost:8080/api/usuarios/${user.id}/pedidos`)
       .then(response => {
         console.log("Pedidos recibidos:", response.data);
         setPedidos(Array.isArray(response.data) ? response.data : []);
       })
       .catch(error => console.error('Error fetching user orders:', error));
-  }, [usuarioId]);
+  }, [user.id]);
 
   return (
     <div style={{ padding: '2rem' }}>
-      <h2>Pedidos del Usuario {usuarioId}</h2>
+      <h2>Pedidos del Usuario {user.id}</h2>
       <ul>
         {Array.isArray(pedidos) && pedidos.map(pedido => (
           <li key={pedido.id}>

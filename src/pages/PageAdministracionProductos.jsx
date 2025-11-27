@@ -20,8 +20,12 @@ const PageAdministracionProductos = () => {
         <Link to={'/administrar-productos/detalle-productos'}>
           <li>Buscar Producto por Id</li>
         </Link>
-        <li>Actualizar Producto</li>
-        <li>Eliminar Producto</li>
+        <Link to={'/administrar-productos/actualizar-producto'}>
+          <li>Actualizar Producto</li>
+        </Link>
+        <Link to={'/administrar-productos/eliminar-producto'}>
+          <li>Eliminar Producto</li>
+        </Link>
         <Link to={'/'}>
           {' '}
           <li>Volver al Menu Principal</li>{' '}

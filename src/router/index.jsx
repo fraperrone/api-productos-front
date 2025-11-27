@@ -9,6 +9,8 @@ import Login from '../pages/LoginPage'
 import ProtectedRoute from '../components/ProtectedRoute'
 import PageAdministracionProductos from '../pages/PageAdministracionProductos'
 import PageDetalleProducto from '../pages/PageDetalleProducto'
+import PageEliminarProducto from '../pages/PageEliminarProducto'
+import PageActualizarProducto from '../pages/PageActualizarProducto'
 
 const router = createBrowserRouter([
   { path: '/login', element: <Login /> }, // login siempre accesible
@@ -57,6 +59,22 @@ const router = createBrowserRouter([
               />
             ),
           },
+          {
+            path: 'eliminar-producto',
+            element: (
+              <ProtectedRoute
+                element={<PageEliminarProducto />}                
+              />
+            ),
+          },
+          {
+            path: 'actualizar-producto',
+            element: (
+              <ProtectedRoute
+                element={<PageActualizarProducto />}                
+              />
+            ),
+          }
         ],
       },
     ],
