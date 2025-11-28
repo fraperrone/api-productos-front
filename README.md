@@ -22,11 +22,13 @@ Instalación de dependencias:
 
 ```bash
 npm install
+```
 
  Ejecución en entorno de prueba
 Para levantar el frontend en modo desarrollo:
 ```bash
 npm run dev
+```
 
 Esto abrirá la aplicación en el puerto 5173 (por defecto de Vite).
 La aplicación realizará los fetch hacia la API en http://localhost:8080.
