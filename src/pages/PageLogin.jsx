@@ -1,7 +1,7 @@
 // definimos la login page
 import React from 'react';
 import Login from '../components/Login';
-const LoginPage = () => {
+const PageLogin = () => {
     return (
         <div style={{ padding: '2rem' }}>
             <h2>Iniciar Sesión</h2>
@@ -9,4 +9,4 @@ const LoginPage = () => {
         </div>
     );
 }
-export default LoginPage;
+export default PageLogin;

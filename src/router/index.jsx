@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom'
 import MainLayout from '../layout/MainLayout'
-import Home from '../pages/Home'
+import PageHome from '../pages/PageHome'
 import PageProductosListados from '../pages/PageProductosListados'
 import DetalleProducto from '../pages/PageDetalleProducto'
 import PageAgregarProducto from '../pages/PageAgregarProducto'
-import UsuarioPedidos from '../pages/UsuarioPedidos'
-import Login from '../pages/LoginPage'
+import PageUsuarioPedidos from '../pages/PageUsuarioPedidos'
+import PageLogin from '../pages/PageLogin'
 import ProtectedRoute from '../components/ProtectedRoute'
 import PageAdministracionProductos from '../pages/PageAdministracionProductos'
 import PageDetalleProducto from '../pages/PageDetalleProducto'
@@ -14,19 +14,19 @@ import PageActualizarProducto from '../pages/PageActualizarProducto'
 import PageCarritoCompras from '../pages/PageCarritoCompras'
 
 const router = createBrowserRouter([
-  { path: '/login', element: <Login /> }, // login siempre accesible
+  { path: '/login', element: <PageLogin /> }, // login siempre accesible
   {
     path: '/',
     element: <ProtectedRoute element={<MainLayout />} />, // protegido
     children: [
-      { path: '/', element: <Home /> },
+      { path: '/', element: <PageHome /> },
       { path: '/productos', element: <PageProductosListados /> },
-      { path: '/productos/:id', element: <DetalleProducto /> },
+      { path: '/productos/:id', element: <PageDetalleProducto /> },
 
       {
         path: '/usuario-pedidos',
         element: (
-          <ProtectedRoute roles={['CLIENTE']} element={<UsuarioPedidos />} />
+          <ProtectedRoute roles={['CLIENTE']} element={<PageUsuarioPedidos />} />
         ),
       },
 

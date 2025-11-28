@@ -1,6 +1,6 @@
 // generamos un hola mundo
 import React from 'react';
-const Home = () => {
+const PageHome = () => {
     return (
         <div style={{ padding: '2rem' }}>
             <h2>Bienvenido a Mi Aplicación React</h2>
@@ -9,4 +9,4 @@ const Home = () => {
         </div>
     );
 }
-export default Home;
+export default PageHome;

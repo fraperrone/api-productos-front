@@ -28,7 +28,7 @@ export default function Carrito({ productos, setProductos }) {
       console.log("Creando pedido:", pedido);
 
       const response = await axios.post("http://localhost:8080/api/pedidos", pedido);
-      alert("Pedido creado con éxito: " + response);
+      alert("Pedido creado con éxito: ");
       setCarrito([]); // vaciar carrito
       //hacemos refresh de la pagina
       // 🔄 volver a pedir productos actualizados

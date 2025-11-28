@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 
-const UsuarioPedidos = () => {
+const PageUsuarioPedidos = () => {
   const [pedidos, setPedidos] = useState([]); // inicializamos como array
   const { user } = useAuth();
 
@@ -40,5 +40,5 @@ const UsuarioPedidos = () => {
   );
 };
 
-export default UsuarioPedidos;
+export default PageUsuarioPedidos;
 
